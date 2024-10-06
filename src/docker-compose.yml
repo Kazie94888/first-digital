@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  backoffice.api:
+    image: ${DOCKER_REGISTRY:-}backoffice-api
+    build:
+      context: .
+      dockerfile: Backoffice.Api/Dockerfile
+    depends_on: 
+      postgres:
+        condition: service_healthy        
+  clientportal.api:
+    image: ${DOCKER_REGISTRY:-}clientportal-api
+    build:
+      context: .
+      dockerfile: ClientPortal.Api/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy        
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB=smartcoin-os
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "smartcoin-os"]
+      interval: 5s
+      timeout: 60s
+      retries: 5

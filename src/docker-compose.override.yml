@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  backoffice.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${USERPROFILE:-$HOME}/.aws:/root/.aws:ro
+  clientportal.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${USERPROFILE:-$HOME}/.aws:/root/.aws:ro
+  postgres:
+    volumes:
+     - "postgres-data:/var/lib/postgresql"
+
+volumes:
+  postgres-data:

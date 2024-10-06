@@ -1,0 +1,12 @@
+﻿{
+  "profiles": {
+    "ConsoleApp": {
+      "commandName": "Project",
+      "commandLineArgs": "seed --clients 10 --orders 100 --auditlogs 250 --applications 10 --fdtdepositaccounts 5 --reset",
+      "workingDirectory": "$(ProjectDir)",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

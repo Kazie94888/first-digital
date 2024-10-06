@@ -1,0 +1,71 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.4"
+services:
+  backoffice.api:
+    build:
+      context: "D:\\Workspace\\1stdigital\\SmartCoinOS-Backend\\src"
+      dockerfile: "Backoffice.Api/Dockerfile"
+      target: "base"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    command: []
+    entrypoint:
+    - "/opt/rider-debugger/linux-x64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/rider-debugger/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    - "--timeout=60"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/rider-debugger"
+      RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
+    image: "backoffice-api:dev"
+    ports:
+    - "127.0.0.1:57054:57100"
+    - "127.0.0.1:60138:57300"
+    volumes:
+    - "C:\\Users\\infer\\.nuget\\packages:/root/.nuget/packages"
+    - "D:\\Workspace\\1stdigital\\SmartCoinOS-Backend\\src\\Backoffice.Api:/app:rw"
+    - "D:\\Workspace\\1stdigital\\SmartCoinOS-Backend\\src:/src:rw"
+    - "C:\\Users\\infer\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2024.1.2\\\
+      Linux64:/opt/rider-debugger"
+    - "C:\\Program Files\\JetBrains\\JetBrains Rider 2024.1.2\\bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "C:\\Users\\infer\\AppData\\Local\\JetBrains\\Rider2024.1\\log\\DebuggerWorker\\\
+      JetBrains.Debugger.Worker.2024_8_05_13_53_48:/var/opt/rider-debugger:rw"
+    working_dir: "/app"
+  clientportal.api:
+    build:
+      context: "D:\\Workspace\\1stdigital\\SmartCoinOS-Backend\\src"
+      dockerfile: "ClientPortal.Api/Dockerfile"
+      target: "base"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    command: []
+    entrypoint:
+    - "/opt/rider-debugger/linux-x64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/rider-debugger/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    - "--timeout=60"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/rider-debugger"
+      RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
+    image: "clientportal-api:dev"
+    ports:
+    - "127.0.0.1:57055:57100"
+    - "127.0.0.1:60139:57300"
+    volumes:
+    - "C:\\Users\\infer\\.nuget\\packages:/root/.nuget/packages"
+    - "D:\\Workspace\\1stdigital\\SmartCoinOS-Backend\\src\\ClientPortal.Api:/app:rw"
+    - "D:\\Workspace\\1stdigital\\SmartCoinOS-Backend\\src:/src:rw"
+    - "C:\\Users\\infer\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2024.1.2\\\
+      Linux64:/opt/rider-debugger"
+    - "C:\\Program Files\\JetBrains\\JetBrains Rider 2024.1.2\\bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "C:\\Users\\infer\\AppData\\Local\\JetBrains\\Rider2024.1\\log\\DebuggerWorker\\\
+      JetBrains.Debugger.Worker.2024_8_05_13_53_48:/var/opt/rider-debugger:rw"
+    working_dir: "/app"

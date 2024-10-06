@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>SmartCoinOS.Backoffice.Api</RootNamespace>
+    <UserSecretsId>5d611c46-63c0-4c38-b63b-b7450cdc1442</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Commands\Commands.csproj" />
+    <ProjectReference Include="..\Extensions\Extensions.csproj" />
+    <ProjectReference Include="..\Integrations\AWSServiceProvider\AWSServiceProvider.csproj" />
+    <ProjectReference Include="..\Integrations\AzureGraphApi\AzureGraphApi.csproj" />
+    <ProjectReference Include="..\Integrations\CourierApi\CourierApi.csproj" />
+    <ProjectReference Include="..\Integrations\FdtPartnerApi\FdtPartnerApi.csproj" />
+    <ProjectReference Include="..\Integrations\GnosisSafeApi\GnosisSafeApi.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentResults" Version="3.15.2" />
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+  </ItemGroup>
+</Project>

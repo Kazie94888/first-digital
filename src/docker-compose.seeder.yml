@@ -1,0 +1,10 @@
+version: "3.4"
+
+services:
+  seeder:
+    build:
+      context: .
+      dockerfile: SmartCoinTool/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
